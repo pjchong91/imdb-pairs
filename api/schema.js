@@ -4,7 +4,7 @@ module.exports = gql`
     people: [Person]
     person(id: ID!): Person
     movies: [Movie]
-    movie(id: ID!): Movie
+    movie(id: ID!): Movie    
   }  
   type Person {
     id: ID!

@@ -4,9 +4,16 @@ const resolvers = {
     movies() {
       return data.movies;
     },
+    people() {
+      return data.people;
+    },
     movie(root, { id }) {
       return data.movies.find(movie => movie.id === parseInt(id));
-    }
+    },
+    person(root, { id }) {
+      return data.people.find(person => person.id === parseInt(id));
+    },
+
   },
 
   Movie: {

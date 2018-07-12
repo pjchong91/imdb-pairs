@@ -30,5 +30,11 @@ const resolvers = {
     },
   },
 
+  Person:{
+      filmography(person){
+          return data.movies.filter(movie => person.filmography.includes(movie.id))
+      }
+  }
+
 };
 module.exports = resolvers

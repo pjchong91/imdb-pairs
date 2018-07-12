@@ -29,11 +29,11 @@ const helpers = {
   mutateAddPerson(root, args) {
     const newPerson = {
       id: data.people.length + 1,
-      name: args.name,
-      birthday: args.birthday,
-      placeOfBirth: args.placeOfBirth,
-      bio: args.bio,
-      filmography: args.filmography
+      name: args.person.name,
+      birthday: args.person.birthday,
+      placeOfBirth: args.person.placeOfBirth,
+      bio: args.person.bio,
+      filmography: args.person.filmography
     }
     data.people.push(newPerson);
     return newPerson;

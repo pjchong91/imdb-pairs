@@ -36,6 +36,8 @@ const resolvers = {
     addPerson(root, args) {
       return helpers.mutateAddPerson(root, args)
     }
+  
+
   }
 
 };

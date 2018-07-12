@@ -6,49 +6,35 @@ const resolvers = {
       return helpers.getMovies();
     },
     people() {
-      return data.people;
+      return helpers.getPeople();
     },
     movie(root, { id }) {
-      return data.movies.find(movie => movie.id === parseInt(id));
+      return helpers.getMovie();
     },
     person(root, { id }) {
-      return data.people.find(person => person.id === parseInt(id));
+      return helpers.getPerson()
     },
 
   },
 
   Movie: {
     director(movie) {
-      if (!movie.director) return null;
-      return data.people.find(person => person.id === movie.director);
+      return helpers.getDirector(movie)
     },
     stars(movie) {
-      return data.people.filter(person => (
-        person.filmography.find(credit => (
-          credit === movie.id && person.id !== movie.director
-        ))
-      ));
+      return helpers.getStars(movie)
     },
   },
 
   Person:{
-      filmography(person){
-          return data.movies.filter(movie => person.filmography.includes(movie.id))
-      }
+    filmography(person){
+      return helpers.getFilmography(person)   
+    }
   },
 
   Mutation: {
     addPerson(root, args) {
-      const newPerson = {
-        id: data.people.length + 1,
-        name: args.name,
-        birthday: args.birthday,
-        placeOfBirth: args.placeOfBirth,
-        bio: args.bio,
-        filmography: args.filmography
-      }
-      data.people.push(newPerson);
-      return newPerson;
+      return helpers.mutateAddPerson(root, args)
     }
   }
 

@@ -34,6 +34,21 @@ const resolvers = {
       filmography(person){
           return data.movies.filter(movie => person.filmography.includes(movie.id))
       }
+  },
+
+  Mutation: {
+    addPerson(root, args) {
+      const newPerson = {
+        id: data.people.length + 1,
+        name: args.name,
+        birthday: args.birthday,
+        placeOfBirth: args.placeOfBirth,
+        bio: args.bio,
+        filmography: args.filmography
+      }
+      data.people.push(newPerson);
+      return newPerson;
+    }
   }
 
 };

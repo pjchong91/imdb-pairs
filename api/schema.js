@@ -21,4 +21,13 @@ module.exports = gql`
     stars: [Person]
     director: Person
   }
+  type Mutation {
+    addPerson(
+      name: String!
+      birthday: String
+      placeOfBirth: String
+      bio: String
+      filmography: [ID]
+    ): Person
+  }
 `;

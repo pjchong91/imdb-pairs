@@ -1,8 +1,9 @@
 const data = require("./data");
+const helpers = require("./helpers")
 const resolvers = {
   Query: {
     movies() {
-      return data.movies;
+      return helpers.getMovies()
     },
     people() {
       return data.people;

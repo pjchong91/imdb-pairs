@@ -1,4 +1,4 @@
-const { data } = require("./data");
+const data = require("./data");
 const helpers = {
   // An example to get you started...
   getMovies() {
@@ -6,4 +6,4 @@ const helpers = {
   }
   // All of your other helpers will go here...
 };
-module.exports = { helpers };
+module.exports = helpers;
